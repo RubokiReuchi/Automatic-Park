@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class Ghost : MonoBehaviour
 {
     NavMeshAgent agent;
-    public GameObject[] targets = new GameObject[0];
+    public GameObject[] targets;
 
     int i;
 
