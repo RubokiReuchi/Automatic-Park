@@ -41,16 +41,8 @@ public class Dog : MonoBehaviour
                 break;
             case state_machine.FLEE:
                 agent.SetDestination(points[point_selected].position);
-                if (in_water)
-                {
-                    agent.speed = max_speed * 0.75f;
-                    agent.acceleration = acceleration * 0.75f;
-                }
-                else
-                {
-                    agent.speed = max_speed * 2;
-                    agent.acceleration = acceleration * 2;
-                }
+                agent.speed = max_speed * 2;
+                agent.acceleration = acceleration * 2;
 
                 if (Vector3.Distance(this.transform.position, points[point_selected].position) <= 2)
                 {
@@ -63,16 +55,8 @@ public class Dog : MonoBehaviour
                 break;
             case state_machine.RETURN:
                 agent.SetDestination(runner.transform.position);
-                if (in_water)
-                {
-                    agent.speed = max_speed * 0.75f;
-                    agent.acceleration = acceleration * 0.75f;
-                }
-                else
-                {
-                    agent.speed = max_speed * 2;
-                    agent.acceleration = acceleration * 2;
-                }
+                agent.speed = max_speed * 2;
+                agent.acceleration = acceleration * 2;
 
                 if (Vector3.Distance(this.transform.position, runner.transform.position) <= 2)
                 {
@@ -90,6 +74,18 @@ public class Dog : MonoBehaviour
         {
             state = state_machine.FLEE;
             point_selected = Random.Range(0, points.Length);
+        }
+        else if (other.CompareTag("water"))
+        {
+            agent.acceleration /= 3;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("water"))
+        {
+            agent.acceleration *= 3;
         }
     }
 
