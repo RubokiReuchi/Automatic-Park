@@ -24,7 +24,7 @@ public class Bees : MonoBehaviour
         switch (state)
         {
             case state_machine.FOLLOW:
-                acual_point = new Vector3(runner.transform.position.x, runner.transform.position.y + 1, runner.transform.position.z);
+                acual_point = new Vector3(runner.transform.position.x, runner.transform.position.y + 2, runner.transform.position.z);
                 this.transform.position = Vector3.MoveTowards(this.transform.position, acual_point, 2.5f * Time.deltaTime);
                 break;
             case state_machine.IDLE:
@@ -72,7 +72,7 @@ public class Bees : MonoBehaviour
     {
         return new Vector3(
             Random.Range(bounds.min.x, bounds.max.x),
-            Random.Range(bounds.min.y, bounds.max.y),
+            Random.Range(10, bounds.max.y),
             Random.Range(bounds.min.z, bounds.max.z)
         );
     }

@@ -22,11 +22,14 @@ public class Dog : MonoBehaviour
     public float acceleration;
     public float time_idle;
 
+    bool in_water;
+
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         state = state_machine.FOLLOW;
+        in_water = false;
     }
 
     // Update is called once per frame
@@ -41,7 +44,8 @@ public class Dog : MonoBehaviour
                 break;
             case state_machine.FLEE:
                 agent.SetDestination(points[point_selected].position);
-                agent.speed = max_speed * 2;
+                if (in_water) agent.speed = max_speed;
+                else agent.speed = max_speed * 2;
                 agent.acceleration = acceleration * 2;
 
                 if (Vector3.Distance(this.transform.position, points[point_selected].position) <= 2)
@@ -55,7 +59,8 @@ public class Dog : MonoBehaviour
                 break;
             case state_machine.RETURN:
                 agent.SetDestination(runner.transform.position);
-                agent.speed = max_speed * 2;
+                if (in_water) agent.speed = max_speed;
+                else agent.speed = max_speed * 2;
                 agent.acceleration = acceleration * 2;
 
                 if (Vector3.Distance(this.transform.position, runner.transform.position) <= 2)
@@ -74,6 +79,17 @@ public class Dog : MonoBehaviour
         {
             state = state_machine.FLEE;
             point_selected = Random.Range(0, points.Length);
+        }
+        if (other.CompareTag("Water"))
+        {
+            in_water = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Water"))
+        {
+            in_water = false;
         }
     }
 
