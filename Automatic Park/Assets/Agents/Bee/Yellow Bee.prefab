@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1409251702973305664}
   - component: {fileID: 164607682958279477}
   m_Layer: 0
-  m_Name: Black Bee
+  m_Name: Yellow Bee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e3d101af7159d8347a8f46808bca9634, type: 2}
+  - {fileID: 2100000, guid: d2f7ab58cfe8d9047b5be74c03370b59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

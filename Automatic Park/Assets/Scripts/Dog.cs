@@ -70,22 +70,10 @@ public class Dog : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("bee") && state == state_machine.FOLLOW)
+        if (other.CompareTag("Bee") && state == state_machine.FOLLOW)
         {
             state = state_machine.FLEE;
             point_selected = Random.Range(0, points.Length);
-        }
-        else if (other.CompareTag("water"))
-        {
-            agent.acceleration /= 3;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("water"))
-        {
-            agent.acceleration *= 3;
         }
     }
 

@@ -13,6 +13,12 @@ public class Flock : MonoBehaviour
     {
         myManager = GetComponentInParent<Flocking_Manager>();
 
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         Vector3 cohesion = Vector3.zero;
         Vector3 align = Vector3.zero;
         Vector3 separation = Vector3.zero;
@@ -30,19 +36,15 @@ public class Flock : MonoBehaviour
                     num++;
                 }
             }
-            direction = (cohesion + align + separation).normalized * speed;
         }
         if (num > 0)
         {
             cohesion = (cohesion / num - transform.position).normalized * speed;
             align /= num;
             speed = Mathf.Clamp(align.magnitude, myManager.min_speed, myManager.max_speed);
+            direction = (cohesion + align + separation).normalized * speed;
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), myManager.rotation_speed * Time.deltaTime);
         transform.Translate(0.0f, 0.0f, Time.deltaTime * speed);
     }

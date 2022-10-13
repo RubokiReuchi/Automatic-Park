@@ -5,8 +5,10 @@ using UnityEngine.AI;
 
 public class Ghost : MonoBehaviour
 {
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
     public GameObject[] targets;
+    public bool scare;
+    public Bees bees;
 
     int i;
 
@@ -30,6 +32,25 @@ public class Ghost : MonoBehaviour
             }
 
             agent.SetDestination(targets[i].transform.position);
+        }
+
+        if (scare)
+        {
+            if (bees.runner.GetComponent<Runner>().ghost == this.gameObject && bees.state == state_machine.FOLLOW)
+            {
+                agent.speed = 7.6f;
+                agent.angularSpeed = 360;
+            }
+            else
+            {
+                agent.speed = 3.8f;
+                agent.angularSpeed = 120;
+            }
+        }
+        else
+        {
+            agent.speed = 3.8f;
+            agent.angularSpeed = 120;
         }
     }
 }
