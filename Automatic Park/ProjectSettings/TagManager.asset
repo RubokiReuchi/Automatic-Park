@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Water
   - Bee
+  - Thief
+  - Policeman
+  - Oldman
   layers:
   - Default
   - TransparentFX
