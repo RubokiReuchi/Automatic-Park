@@ -16,14 +16,16 @@ public enum TYPE
 
 public class PerceptionEvent
 {
-    public PerceptionEvent(GameObject go, SENSE sense, TYPE type)
+    public PerceptionEvent(GameObject go_user, GameObject go_obj, SENSE sense, TYPE type)
     {
-        this.go = go;
+        this.go_user = go_user;
+        this.go_obj = go_obj;
         this.sense = sense;
         this.type = type;
     }
 
-    public GameObject go;
+    public GameObject go_user; // el que ve
+    public GameObject go_obj; // el que es visto
     public SENSE sense;
     public TYPE type;
 }
@@ -45,7 +47,9 @@ public class EventManager : MonoBehaviour
         {
             if (ev.sense == SENSE.VISION && ev.type == TYPE.SPOT)
             {
-                ev.go.SendMessage("Follow_Thief");
+                if (ev.go_user.gameObject.GetComponent<Thief>()) ev.go_user.SendMessage("Steal", ev.go_obj); // thief
+                if (ev.go_user.gameObject.GetComponent<Policeman>()) ev.go_user.SendMessage("Hide"); // thief
+                if (ev.go_user.gameObject.GetComponent<Oldman>()) ev.go_user.SendMessage("GoToBench"); // oldman
             }
             else if (ev.sense == SENSE.VISION && ev.type == TYPE.LOST)
             {
@@ -60,5 +64,6 @@ public class EventManager : MonoBehaviour
                 
             }
         }
+        events.Clear();
     }
 }

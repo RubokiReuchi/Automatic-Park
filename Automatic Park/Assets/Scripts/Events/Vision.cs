@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Vision : MonoBehaviour
 {
-	public GameObject go_manager;
-	EventManager manager;
+	[SerializeField] EventManager manager;
+
+	bool event_set;
 
 	public Camera frustum;
 	public LayerMask mask;
@@ -13,7 +14,7 @@ public class Vision : MonoBehaviour
 
     void Start()
     {
-		manager = go_manager.GetComponent<EventManager>();
+		event_set = false;
     }
 
     void Update()
@@ -33,15 +34,37 @@ public class Vision : MonoBehaviour
 
 				if (Physics.Raycast(ray, out hit, frustum.farClipPlane, mask))
                 {
-					if (hit.collider.gameObject.CompareTag("Oldman"))
+					if (hit.collider.gameObject.CompareTag("Oldman") && !event_set)
 					{
-                        if (!this.gameObject.GetComponent<Policeman>())
+                        if (this.gameObject.GetComponent<Thief>())
                         {
 							// call event
-							manager.events.Add(new PerceptionEvent(this.gameObject, SENSE.VISION, TYPE.SPOT));
-						}
+							manager.events.Add(new PerceptionEvent(this.gameObject, hit.collider.gameObject, SENSE.VISION, TYPE.SPOT));
+							event_set = true;
 
-						Debug.DrawRay(ray.origin, ray.direction * frustum.farClipPlane, Color.red);
+							Debug.DrawRay(ray.origin, ray.direction * frustum.farClipPlane, Color.red);
+						}
+					}
+					else if (hit.collider.gameObject.CompareTag("Thief") && !event_set)
+					{
+						if (this.gameObject.GetComponent<Policeman>())
+						{
+							// call event
+							manager.events.Add(new PerceptionEvent(this.gameObject, hit.collider.gameObject, SENSE.VISION, TYPE.SPOT));
+
+							Debug.DrawRay(ray.origin, ray.direction * frustum.farClipPlane, Color.yellow);
+						}
+					}
+					else if (hit.collider.gameObject.CompareTag("Bench") && !event_set)
+					{
+						if (this.gameObject.GetComponent<Oldman>())
+						{
+							// call event
+							manager.events.Add(new PerceptionEvent(this.gameObject, hit.collider.gameObject, SENSE.VISION, TYPE.SPOT));
+							event_set = true;
+
+							Debug.DrawRay(ray.origin, ray.direction * frustum.farClipPlane, Color.green);
+						}
 					}
 				}
 			}

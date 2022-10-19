@@ -9,6 +9,7 @@ TagManager:
   - Thief
   - Policeman
   - Oldman
+  - Bench
   layers:
   - Default
   - TransparentFX
