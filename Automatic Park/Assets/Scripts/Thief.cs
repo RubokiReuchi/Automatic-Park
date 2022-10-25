@@ -9,20 +9,25 @@ public enum THIEF_STATE
     HIDE, // disimular
     STEAL,
     RUN,
-    STOP,
+    CHANGE, // chage cloths
+    GO_TO_SIT,
+    SIT,
 }
 
 public class Thief : MonoBehaviour
 {
-    [SerializeField] THIEF_STATE state;
+    public THIEF_STATE state;
     NavMeshAgent agent;
     public GameObject[] targets;
     public GameObject hide_spot; // after steal
-    public Camera cam;
-    int head_dir;
+    public int headAngle;
+    public float headSpeed;
     bool hide;
     GameObject victim;
-    MeshRenderer render;
+    public GameObject bench;
+
+    Material material_component;
+    public Material newMaterial;
 
     int i;
 
@@ -33,11 +38,8 @@ public class Thief : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         i = 0;
         agent.SetDestination(targets[i].transform.position);
-
-        head_dir = 0;
         hide = false;
-
-        render = GetComponent<MeshRenderer>();
+        material_component = agent.GetComponent<Material>();
     }
 
     // Update is called once per frame
@@ -77,12 +79,24 @@ public class Thief : MonoBehaviour
                 agent.SetDestination(hide_spot.transform.position);
                 if (Vector3.Distance(transform.position, hide_spot.transform.position) <= 1)
                 {
-                    state = THIEF_STATE.STOP;
+                    state = THIEF_STATE.CHANGE;
+                    material_component = newMaterial;
                 }
                 break;
-            case THIEF_STATE.STOP:
+            case THIEF_STATE.CHANGE:
                 agent.speed = 0;
-                render.enabled = false;
+                StartCoroutine("Wait");
+                break;
+            case THIEF_STATE.GO_TO_SIT:
+                agent.SetDestination(bench.transform.position);
+                agent.speed = 2.5f;
+                if (Vector3.Distance(transform.position, bench.transform.position) <= 1)
+                {
+                    state = THIEF_STATE.SIT;
+                }
+                break;
+            case THIEF_STATE.SIT:
+                agent.speed = 0;
                 break;
             default:
                 break;
@@ -100,27 +114,48 @@ public class Thief : MonoBehaviour
 
     public void Hide()
     {
-        state = THIEF_STATE.HIDE;
-        if (!hide) hide = true;
+        if (state == THIEF_STATE.STEAL)
+        {
+            state = THIEF_STATE.HIDE;
+            if (!hide) hide = true;
+        }
     }
 
     IEnumerator MoveCam()
     {
-        StartCoroutine("Wait");
-        while (head_dir != 0)
+        uint phase = 0; // 0 --> first right, 1 --> first left, 2 --> second right, 3 --> end head move
+        float ori_y = transform.rotation.eulerAngles.y;
+        float new_y = transform.rotation.eulerAngles.y;
+        while (phase != 3)
         {
-            cam.transform.rotation = new Quaternion(cam.transform.rotation.w, cam.transform.rotation.x, cam.transform.rotation.y + head_dir, cam.transform.rotation.z);
-            yield return null;
+            switch (phase)
+            {
+                case 0:
+                    new_y += headSpeed;
+                    transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, new_y, transform.rotation.eulerAngles.z);
+                    if (new_y == ori_y + headAngle) phase = 1;
+                    yield return null;
+                    break;
+                case 1:
+                    new_y -= headSpeed;
+                    transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, new_y, transform.rotation.eulerAngles.z);
+                    if (new_y == ori_y - headAngle) phase = 2;
+                    yield return null;
+                    break;
+                case 2:
+                    new_y += headSpeed;
+                    transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, new_y, transform.rotation.eulerAngles.z);
+                    if (new_y == ori_y) phase = 3;
+                    yield return null;
+                    break;
+            }
         }
+        state = THIEF_STATE.STEAL;
     }
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(1);
-        head_dir = -1;
-        yield return new WaitForSeconds(1 * 2);
-        head_dir = 1;
-        yield return new WaitForSeconds(1);
-        head_dir = 0;
+        yield return new WaitForSeconds(3);
+        state = THIEF_STATE.GO_TO_SIT;
     }
 }

@@ -15,9 +15,9 @@ public class Policeman : MonoBehaviour
     [SerializeField] POLICEMAN_STATE state;
     NavMeshAgent agent;
     public GameObject[] targets;
-    public Camera cam;
-    int head_dir;
-    GameObject victim;
+    public int headAngle;
+    public float headSpeed;
+    public GameObject thief;
 
     int i;
 
@@ -28,8 +28,6 @@ public class Policeman : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         i = 0;
         agent.SetDestination(targets[i].transform.position);
-
-        head_dir = 0;
     }
 
     // Update is called once per frame
@@ -38,6 +36,7 @@ public class Policeman : MonoBehaviour
         switch (state)
         {
             case POLICEMAN_STATE.WANDER:
+                agent.speed = 3.5f;
                 if (Vector3.Distance(transform.position, targets[i].transform.position) <= 1)
                 {
                     i++;
@@ -54,31 +53,55 @@ public class Policeman : MonoBehaviour
                 agent.speed = 0;
                 break;
             case POLICEMAN_STATE.CATCH:
+                agent.SetDestination(thief.transform.position);
+                agent.speed = 7;
+                if (thief.GetComponent<Thief>().state == THIEF_STATE.CHANGE)
+                {
+                    state = POLICEMAN_STATE.WANDER;
+                    agent.SetDestination(targets[i].transform.position);
+                    agent.speed = 3.5f;
+                }
                 break;
             default:
                 break;
         }
     }
 
+    public void ListenForHelp()
+    {
+        state = POLICEMAN_STATE.CATCH;
+    }
+
     IEnumerator MoveCam()
     {
-        StartCoroutine("Wait");
-        while (head_dir != 0)
+        uint phase = 0; // 0 --> first right, 1 --> first left, 2 --> second right, 3 --> end head move
+        float ori_y = transform.rotation.eulerAngles.y;
+        float new_y = transform.rotation.eulerAngles.y;
+        while (phase != 3)
         {
-            cam.transform.rotation = new Quaternion(cam.transform.rotation.w, cam.transform.rotation.x, cam.transform.rotation.y + head_dir, cam.transform.rotation.z);
-            yield return null;
+            switch (phase)
+            {
+                case 0:
+                    new_y += headSpeed;
+                    transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, new_y, transform.rotation.eulerAngles.z);
+                    if (new_y == ori_y + headAngle) phase = 1;
+                    yield return null;
+                    break;
+                case 1:
+                    new_y -= headSpeed;
+                    transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, new_y, transform.rotation.eulerAngles.z);
+                    if (new_y == ori_y - headAngle) phase = 2;
+                    yield return null;
+                    break;
+                case 2:
+                    new_y += headSpeed;
+                    transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, new_y, transform.rotation.eulerAngles.z);
+                    if (new_y == ori_y) phase = 3;
+                    yield return null;
+                    break;
+            }
         }
         state = POLICEMAN_STATE.WANDER;
         agent.SetDestination(targets[i].transform.position);
-    }
-
-    IEnumerator Wait()
-    {
-        yield return new WaitForSeconds(1);
-        head_dir = -1;
-        yield return new WaitForSeconds(1 * 2);
-        head_dir = 1;
-        yield return new WaitForSeconds(1);
-        head_dir = 0;
     }
 }

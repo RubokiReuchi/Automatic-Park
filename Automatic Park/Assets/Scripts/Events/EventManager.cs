@@ -49,7 +49,7 @@ public class EventManager : MonoBehaviour
             {
                 if (ev.go_user.gameObject.GetComponent<Thief>()) ev.go_user.SendMessage("Steal", ev.go_obj); // thief
                 if (ev.go_user.gameObject.GetComponent<Policeman>()) ev.go_user.SendMessage("Hide"); // thief
-                if (ev.go_user.gameObject.GetComponent<Oldman>()) ev.go_user.SendMessage("GoToBench"); // oldman
+                if (ev.go_user.gameObject.GetComponent<Oldman>()) ev.go_user.SendMessage("GoToBench", ev.go_obj); // oldman
             }
             else if (ev.sense == SENSE.VISION && ev.type == TYPE.LOST)
             {

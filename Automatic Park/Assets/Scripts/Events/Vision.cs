@@ -6,7 +6,7 @@ public class Vision : MonoBehaviour
 {
 	[SerializeField] EventManager manager;
 
-	bool event_set;
+	[HideInInspector] public bool event_set;
 
 	public Camera frustum;
 	public LayerMask mask;
