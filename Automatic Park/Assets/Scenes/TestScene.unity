@@ -929,7 +929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6665741389542624064, guid: bd764d0fe920a1d4da258498fd3d40fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6665741389542624090, guid: bd764d0fe920a1d4da258498fd3d40fa, type: 3}
       propertyPath: hide_spot
