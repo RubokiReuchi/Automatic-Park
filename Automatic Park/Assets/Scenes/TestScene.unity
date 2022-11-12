@@ -931,22 +931,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: hide_spot
-      value: 
-      objectReference: {fileID: 985364155}
-    - target: {fileID: 0}
-      propertyPath: targets.Array.data[0]
-      value: 
-      objectReference: {fileID: 2011196520}
-    - target: {fileID: 0}
-      propertyPath: targets.Array.data[1]
-      value: 
-      objectReference: {fileID: 1351691343}
-    - target: {fileID: 0}
-      propertyPath: targets.Array.data[2]
-      value: 
-      objectReference: {fileID: 1904862080}
     - target: {fileID: 6665741389542624092, guid: bd764d0fe920a1d4da258498fd3d40fa, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1015,7 +999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxTasksPerTick: 500
-  behavior: {fileID: 11400000, guid: a3bb5b15fd78a8e49942b544c320776f, type: 2}
+  behavior: {fileID: 11400000, guid: c3d4dc4f1c14bef4f94ce09c2732d467, type: 2}
   paused: 0
   restartWhenFinished: 0
   blackboard:
@@ -1036,8 +1020,10 @@ MonoBehaviour:
     colorParamsLostDefaultValue: 
     objectParams:
     - {fileID: 0}
+    - {fileID: 0}
     objectParamsNames:
-    - Self GameObject
+    - Self GO
+    - Policeman
     objectParamsLostDefaultValue: 
     layerMaskParams: []
     layerMaskParamsNames: []
@@ -1047,8 +1033,12 @@ MonoBehaviour:
     vector2Params: []
     vector2ParamsNames: []
     vector2ParamsLostDefaultValue: 
-    vector3Params: []
-    vector3ParamsNames: []
+    vector3Params:
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    vector3ParamsNames:
+    - Hide Position
+    - Bench Position
     vector3ParamsLostDefaultValue: 
     vector4Params: []
     vector4ParamsNames: []
