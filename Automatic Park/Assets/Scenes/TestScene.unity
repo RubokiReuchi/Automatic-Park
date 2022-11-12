@@ -931,6 +931,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6665741389542624064, guid: bd764d0fe920a1d4da258498fd3d40fa, type: 3}
+      propertyPath: m_TagString
+      value: Thief
+      objectReference: {fileID: 0}
     - target: {fileID: 6665741389542624092, guid: bd764d0fe920a1d4da258498fd3d40fa, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -981,80 +985,3 @@ PrefabInstance:
       objectReference: {fileID: 1386567898}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd764d0fe920a1d4da258498fd3d40fa, type: 3}
---- !u!1 &6665741389081276815 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6665741389542624064, guid: bd764d0fe920a1d4da258498fd3d40fa, type: 3}
-  m_PrefabInstance: {fileID: 6665741389081276814}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6665741389081276816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6665741389081276815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422fb6956201c7944ae2113a1a53b0b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxTasksPerTick: 500
-  behavior: {fileID: 11400000, guid: c3d4dc4f1c14bef4f94ce09c2732d467, type: 2}
-  paused: 0
-  restartWhenFinished: 0
-  blackboard:
-    intParams: 
-    intParamsNames: []
-    intParamsLostDefaultValue: 
-    boolParams: 
-    boolParamsNames: []
-    boolParamsLostDefaultValue: 
-    floatParams: []
-    floatParamsNames: []
-    floatParamsLostDefaultValue: 
-    stringParams: []
-    stringParamsNames: []
-    stringParamsLostDefaultValue: 
-    colorParams: []
-    colorParamsNames: []
-    colorParamsLostDefaultValue: 
-    objectParams:
-    - {fileID: 0}
-    - {fileID: 0}
-    objectParamsNames:
-    - Self GO
-    - Policeman
-    objectParamsLostDefaultValue: 
-    layerMaskParams: []
-    layerMaskParamsNames: []
-    layerMaskParamsLostDefaultValue: 
-    enumParamsNames: []
-    enumParamsLostDefaultValue: 
-    vector2Params: []
-    vector2ParamsNames: []
-    vector2ParamsLostDefaultValue: 
-    vector3Params:
-    - {x: 0, y: 0, z: 0}
-    - {x: 0, y: 0, z: 0}
-    vector3ParamsNames:
-    - Hide Position
-    - Bench Position
-    vector3ParamsLostDefaultValue: 
-    vector4Params: []
-    vector4ParamsNames: []
-    vector4ParamsLostDefaultValue: 
-    rectParams: []
-    rectParamsNames: []
-    rectParamsLostDefaultValue: 
-    animationCurveParams: []
-    animationCurveParamsNames: []
-    animationCurveParamsLostDefaultValue: 
-    boundsParams: []
-    boundsParamsNames: []
-    boundsParamsLostDefaultValue: 
-    gradientParams: []
-    gradientParamsNames: []
-    gradientParamsLostDefaultValue: 
-    quaternionParams: []
-    quaternionParamsNames: []
-    quaternionParamsLostDefaultValue: 

@@ -7,24 +7,34 @@ using Pada1.BBCore.Framework;
 [Help("Checks if hunter saw his prey.")]
 public class Spotted : ConditionBase
 {
+    [InParam("User Tag")] public string user;
     [OutParam("Prey")] public GameObject prey;
 
     bool ret = false;
     public void Steal(GameObject oldman)
     {
-        ret = true;
-        prey = oldman;
+        if (user == "Thief")
+        {
+            ret = true;
+            prey = oldman;
+        }
     }
 
     public void Hide()
     {
-        ret = true;
+        if (user == "Thief")
+        {
+            ret = true;
+        }
     }
 
     public void GoToBench(GameObject bench)
     {
-        ret = true;
-        prey = bench;
+        if (user == "Oldman")
+        {
+            ret = true;
+            prey = bench;
+        }
     }
 
     public override bool Check()

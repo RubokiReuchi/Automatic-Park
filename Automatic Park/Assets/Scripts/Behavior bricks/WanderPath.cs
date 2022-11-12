@@ -6,7 +6,7 @@ public class WanderPath : MonoBehaviour
 {
     int i;
     public Transform[] targets;
-    public Transform destination;
+    Transform destination;
 
     // Start is called before the first frame update
     void Start()
