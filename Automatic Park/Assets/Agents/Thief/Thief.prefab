@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6665741389542624095}
   - component: {fileID: 6665741389542624094}
   - component: {fileID: 6665741389542624065}
-  - component: {fileID: 6665741389542624090}
   - component: {fileID: 6665741389542624093}
   - component: {fileID: 6665741389542624091}
   m_Layer: 0
@@ -102,28 +101,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6665741389542624090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6665741389542624064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0682283eb161890468954b3781408b2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  targets:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  hide_spot: {fileID: 0}
-  headAngle: 90
-  headSpeed: 1
-  bench: {fileID: 0}
-  newMaterial: {fileID: 2100000, guid: bbc5fd72e7fe0e94b8eb3c7509aa70f7, type: 2}
 --- !u!114 &6665741389542624093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
+  event_set: 0
   frustum: {fileID: 6665741389888905434}
   mask:
     serializedVersion: 2
