@@ -87,7 +87,6 @@ GameObject:
   - component: {fileID: 6843139192737718760}
   - component: {fileID: 6843139192737718761}
   - component: {fileID: 6843139192737718774}
-  - component: {fileID: 6843139192737718772}
   - component: {fileID: 6843139192737718762}
   - component: {fileID: 6843139192737718764}
   m_Layer: 0
@@ -177,27 +176,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6843139192737718772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6843139192737718775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43cef939516e0a74cb6a25c1b8213aae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  targets:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  headAngle: 45
-  headSpeed: 0.5
-  thief: {fileID: 0}
 --- !u!114 &6843139192737718762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
+  event_set: 0
   frustum: {fileID: 6843139192526178925}
   mask:
     serializedVersion: 2

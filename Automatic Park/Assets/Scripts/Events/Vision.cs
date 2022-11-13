@@ -36,7 +36,7 @@ public class Vision : MonoBehaviour
                 {
 					if (hit.collider.gameObject.CompareTag("Oldman") && !event_set)
 					{
-                        if (this.gameObject.GetComponent<Thief>())
+                        if (this.gameObject.GetComponent<BehaviorExecutor>().behavior.ToString() == "Thief")
                         {
 							// call event
 							manager.events.Add(new PerceptionEvent(this.gameObject, hit.collider.gameObject, SENSE.VISION, TYPE.SPOT));
@@ -47,7 +47,7 @@ public class Vision : MonoBehaviour
 					}
 					else if (hit.collider.gameObject.CompareTag("Thief") && !event_set)
 					{
-						if (this.gameObject.GetComponent<Policeman>())
+						if (this.gameObject.GetComponent<BehaviorExecutor>().behavior.ToString() == "Policeman")
 						{
 							// call event
 							manager.events.Add(new PerceptionEvent(this.gameObject, hit.collider.gameObject, SENSE.VISION, TYPE.SPOT));

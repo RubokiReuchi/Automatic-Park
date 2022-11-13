@@ -8,7 +8,6 @@ using Pada1.BBCore.Framework; // BasePrimitiveAction
 public class Wander : BasePrimitiveAction
 {
     [InParam("GameObject")] public GameObject go;
-    [InParam("Points")] public Transform[] points;
     [OutParam("Destination")] public Vector3 destination;
 
     public override TaskStatus OnUpdate()
