@@ -17,7 +17,7 @@ public class LookArround : BasePrimitiveAction
 
     public override void OnStart()
     {
-        //start coroutine
+        //StartCoroutine
     }
 
     public override TaskStatus OnUpdate()

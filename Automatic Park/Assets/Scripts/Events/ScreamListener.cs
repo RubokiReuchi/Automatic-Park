@@ -7,7 +7,7 @@ public class ScreamListener : MonoBehaviour
     public void Scream()
     {
         // set scream bool to true
-        //gameObject.GetComponent<BehaviorExecutor>()
+        //gameObject.GetComponent<BehaviorExecutor>().behavior.
     }
 
     public void ThiefScaped()
