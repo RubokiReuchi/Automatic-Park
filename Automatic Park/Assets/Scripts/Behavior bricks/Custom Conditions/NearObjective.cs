@@ -7,13 +7,12 @@ using Pada1.BBCore.Framework;
 [Help("Checks if hunter is close to his prey.")]
 public class NearObjective : ConditionBase
 {
-    [InParam("Hunter")] public string hunter_tag;
-    [InParam("Prey")] public string prey_tag;
+    [InParam("Hunter")] public GameObject hunter;
+    [InParam("Prey")] public GameObject prey;
 
     public override bool Check()
     {
-        GameObject hunter = GameObject.Find(hunter_tag);
-        GameObject prey = GameObject.Find(prey_tag);
-        return Vector3.Distance(hunter.transform.position, prey.transform.position) < 1.0f;
+        bool ret = (Vector3.Distance(hunter.transform.position, prey.transform.position) < 1.0f);
+        return ret;
     }
 }

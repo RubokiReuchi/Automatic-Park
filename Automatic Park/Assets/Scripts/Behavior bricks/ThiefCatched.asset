@@ -18,7 +18,8 @@ MonoBehaviour:
     id=\"0\" guid=\"92931af480671e2408533a48b63d1ed6\" nextId=\"8\">\r\n      <root>\r\n       
     <RepeatDecorator id=\"7\" />\r\n      </root>\r\n      <inputParams>\r\n       
     <inputValues>\r\n          <entry name=\"Policeman\" type=\"UnityEngine.GameObject\"
-    isBlackboard=\"True\" blackboard=\"Policeman\" />\r\n        </inputValues>\r\n     
+    isBlackboard=\"True\" blackboard=\"Policeman\" />\r\n          <entry name=\"Self
+    GO\" type=\"UnityEngine.GameObject\" isBlackboard=\"False\" />\r\n        </inputValues>\r\n     
     </inputParams>\r\n      <outputParams>\r\n        <outputValues>\r\n         
     <entry name=\"Policeman Position\" type=\"UnityEngine.Vector3\" isBlackboard=\"True\"
     />\r\n        </outputValues>\r\n      </outputParams>\r\n      <localParams
@@ -35,9 +36,9 @@ MonoBehaviour:
     </children>\r\n      <inputParams />\r\n      <outputParams />\r\n      <localParams
     />\r\n    </PrioritySelectorNode>\r\n    <ConditionEvalNode id=\"4\" policy=\"ATOMIC_CHECK\"
     name=\"MyConditions/Near Objective?\">\r\n      <inputParams>\r\n        <inputValues>\r\n         
-    <entry name=\"Hunter\" type=\"System.String\" isBlackboard=\"False\" value=\"Policeman\"
-    />\r\n          <entry name=\"Prey\" type=\"System.String\" isBlackboard=\"False\"
-    value=\"Thief\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
+    <entry name=\"Hunter\" type=\"System.String\" isBlackboard=\"True\" blackboard=\"Policeman\"
+    />\r\n          <entry name=\"Prey\" type=\"System.String\" isBlackboard=\"True\"
+    blackboard=\"Self GO\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
     <outputParams />\r\n      <localParams />\r\n    </ConditionEvalNode>\r\n   
     <ActionNode id=\"3\" action=\"MyActions/Follow\">\r\n      <inputParams>\r\n       
     <inputValues>\r\n          <entry name=\"Head\" type=\"UnityEngine.GameObject\"
@@ -71,7 +72,7 @@ MonoBehaviour:
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <PrioritySelectorNode
     id=\"2\" />\r\n          <RepeatDecorator id=\"7\" />\r\n        </data>\r\n     
     </_data>\r\n    </PrioritySelectorNode>\r\n    <ConditionEvalNode id=\"4\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"421.5625
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"True\" position=\"421.5625
     560.9375\" name=\"MyConditions/Near Objective?\" description=\"Eval\" cardinality=\"1\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ConditionEvalNode
     id=\"4\" />\r\n          <PrioritySelectorNode id=\"2\" />\r\n        </data>\r\n     

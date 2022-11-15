@@ -19,6 +19,7 @@ MonoBehaviour:
     <ParallelNode id=\"1\" />\r\n      </root>\r\n      <inputParams>\r\n       
     <inputValues>\r\n          <entry name=\"Oldman Spotted\" type=\"UnityEngine.GameObject\"
     isBlackboard=\"False\" />\r\n          <entry name=\"Policeman\" type=\"UnityEngine.GameObject\"
+    isBlackboard=\"False\" />\r\n          <entry name=\"Self GO\" type=\"UnityEngine.GameObject\"
     isBlackboard=\"False\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
     <outputParams />\r\n      <localParams />\r\n    </BehaviorTree>\r\n    <ParallelNode
     id=\"1\" policy=\"AndPolicy\">\r\n      <children>\r\n        <elem>\r\n         
@@ -40,11 +41,11 @@ MonoBehaviour:
     <child>\r\n              <ActionNode id=\"6\" />\r\n            </child>\r\n         
     </GuardAndNode>\r\n        </elem>\r\n      </children>\r\n      <inputParams
     />\r\n      <outputParams />\r\n      <localParams />\r\n    </PrioritySelectorNode>\r\n   
-    <ConditionEvalNode id=\"7\" policy=\"ATOMIC_CHECK\" name=\"MyConditions/Near
+    <ConditionEvalNode id=\"7\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\" name=\"MyConditions/Near
     Objective?\">\r\n      <inputParams>\r\n        <inputValues>\r\n          <entry
-    name=\"Hunter\" type=\"System.String\" isBlackboard=\"False\" value=\"Thief\"
-    />\r\n          <entry name=\"Prey\" type=\"System.String\" isBlackboard=\"False\"
-    value=\"Oldman\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
+    name=\"Hunter\" type=\"System.String\" isBlackboard=\"True\" blackboard=\"Self
+    GO\" />\r\n          <entry name=\"Prey\" type=\"System.String\" isBlackboard=\"True\"
+    blackboard=\"Oldman Spotted\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
     <outputParams />\r\n      <localParams />\r\n    </ConditionEvalNode>\r\n   
     <ActionNode id=\"6\" action=\"GameObject/SendMessage\">\r\n      <inputParams>\r\n       
     <inputValues>\r\n          <entry name=\"methodName\" type=\"System.String\"
@@ -76,7 +77,7 @@ MonoBehaviour:
     <BehaviorTree id=\"0\" />\r\n          <RepeatUntilSuccess id=\"3\" />\r\n         
     <ParallelNode id=\"1\" />\r\n        </data>\r\n      </_data>\r\n    </RepeatUntilSuccess>\r\n   
     <RepeatDecorator id=\"8\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
-    selected=\"True\" position=\"696.25 231.25\" name=\"Repeat\" description=\"Repeats
+    selected=\"False\" position=\"696.25 231.25\" name=\"Repeat\" description=\"Repeats
     the execution of its child node\" cardinality=\"1\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <RepeatDecorator id=\"8\" />\r\n         
     <ParallelNode id=\"1\" />\r\n        </data>\r\n      </_data>\r\n    </RepeatDecorator>\r\n   
@@ -91,13 +92,13 @@ MonoBehaviour:
     <BehaviorTree id=\"0\" />\r\n          <PrioritySelectorNode id=\"5\" />\r\n         
     <RepeatDecorator id=\"8\" />\r\n        </data>\r\n      </_data>\r\n    </PrioritySelectorNode>\r\n   
     <ConditionEvalNode id=\"7\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
-    selected=\"False\" position=\"860.9375 683.125\" name=\"MyConditions/Near Objective?\"
+    selected=\"True\" position=\"862.1875 683.125\" name=\"MyConditions/Near Objective?\"
     description=\"Eval\" cardinality=\"1\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ConditionEvalNode id=\"7\" />\r\n          <PrioritySelectorNode
     id=\"5\" />\r\n        </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n   
     <ActionNode id=\"6\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"668.75 517.5\" name=\"GameObject/SendMessage\" description=\"Calls
-    the method named methodName on every MonoBehaviour in this game object\" cardinality=\"0\"
+    position=\"670 517.5\" name=\"GameObject/SendMessage\" description=\"Calls the
+    method named methodName on every MonoBehaviour in this game object\" cardinality=\"0\"
     hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
     id=\"6\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n</BehaviorBricks>"
   zoom: 0.8
