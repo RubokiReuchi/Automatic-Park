@@ -39,7 +39,7 @@ MonoBehaviour:
     <inputValues>\r\n          <entry name=\"GameObject\" type=\"UnityEngine.GameObject\"
     isBlackboard=\"True\" blackboard=\"Self GO\" />\r\n          <entry name=\"Head
     Angle\" type=\"System.Int32\" isBlackboard=\"False\" value=\"60\" />\r\n         
-    <entry name=\"Head Speed\" type=\"System.Single\" isBlackboard=\"False\" value=\"0,5\"
+    <entry name=\"Head Speed\" type=\"System.Single\" isBlackboard=\"False\" value=\"5\"
     />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n     
     <localParams />\r\n    </ActionNode>\r\n    <ConditionNode id=\"5\">\r\n     
     <condition>\r\n        <ConditionEvalNode id=\"0\" />\r\n      </condition>\r\n     
@@ -112,7 +112,11 @@ MonoBehaviour:
     the game object to a given position by using a NavMeshAgent\" cardinality=\"0\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
     id=\"12\" />\r\n          <SequenceNode id=\"10\" />\r\n        </data>\r\n     
-    </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n</BehaviorBricks>"
+    </_data>\r\n    </ActionNode>\r\n    <ConditionEvalNode id=\"0\">\r\n      <_data>\r\n       
+    <data breakpoint=\"0\" selected=\"False\" position=\"0 0\" name=\"AlwaysTrue\"
+    description=\"Eval\" cardinality=\"1\" hasParent=\"False\">\r\n          <ConditionEvalNode
+    id=\"0\" />\r\n        </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n 
+    </editorInfo>\r\n</BehaviorBricks>"
   zoom: 0.8
   subslist: []
   _guid: 95521488825bb0b4792bc308a12a1852
