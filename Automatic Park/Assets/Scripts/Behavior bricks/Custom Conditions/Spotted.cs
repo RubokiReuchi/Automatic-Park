@@ -10,13 +10,13 @@ public class Spotted : ConditionBase
     [InParam("Hunter")] public GameObject hunter;
     [OutParam("Prey")] public GameObject prey;
 
-    bool ret = true;
+    bool ret = false;
 
     public override bool Check()
     {
         if (hunter.tag == "Thief")
         {
-            ThiefSS t = hunter.GetComponent<ThiefSS>();
+            ReciveSS t = hunter.GetComponent<ReciveSS>();
             if (t.spotted)
             {
                 ret = true;
