@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.AI;
 using System.Collections;
 using System.Collections.Generic;
 using Pada1.BBCore;           // Code attributes
@@ -12,7 +11,6 @@ public class LookArround : BasePrimitiveAction
 {
     [InParam("GameObject")] public GameObject go;
 
-    NavMeshAgent agent;
     LookArroundSS look_arround;
 
     public override void OnStart()
@@ -26,12 +24,10 @@ public class LookArround : BasePrimitiveAction
     {
         if (look_arround.execute != 3)
         {
-            agent.speed = 0;
             return TaskStatus.RUNNING;
         }
         else
         {
-            agent.speed = 3.5f;
             look_arround.execute = 0;
             return TaskStatus.COMPLETED;
         }

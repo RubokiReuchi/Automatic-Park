@@ -48,7 +48,7 @@ public class EventManager : MonoBehaviour
             if (ev.sense == SENSE.VISION && ev.type == TYPE.SPOT)
             {
                 if (ev.go_user.gameObject.GetComponent<BehaviorExecutor>().behavior.ToString() == "Thief (BrickAsset)") ev.go_user.SendMessage("Steal", ev.go_obj); // thief
-                if (ev.go_user.gameObject.GetComponent<BehaviorExecutor>().behavior.ToString() == "Policeman (BrickAsset)") ev.go_obj.SendMessage("Hide"); // thief
+                if (ev.go_user.gameObject.GetComponent<BehaviorExecutor>().behavior.ToString() == "Policeman (BrickAsset)") ev.go_user.SendMessage("Hide"); // thief
                 if (ev.go_user.gameObject.GetComponent<Oldman>()) ev.go_user.SendMessage("GoToBench", ev.go_obj); // oldman
             }
             else if (ev.sense == SENSE.VISION && ev.type == TYPE.LOST)

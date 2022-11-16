@@ -20,12 +20,16 @@ public class Spotted : ConditionBase
             if (t.spotted)
             {
                 ret = true;
-                prey = t.oldman;
+                prey = t.prey;
             }
         }
         else if (hunter.tag == "Policeman")
         {
-            return true;
+            ReciveSS p = hunter.GetComponent<ReciveSS>();
+            if (p.spotted)
+            {
+                return true;
+            }
         }
 
         return ret;

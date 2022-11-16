@@ -66,6 +66,11 @@ public class Vision : MonoBehaviour
 							Debug.DrawRay(ray.origin, ray.direction * frustum.farClipPlane, Color.green);
 						}
 					}
+                    if (!hit.collider.gameObject.CompareTag("Thief") && this.gameObject.GetComponent<BehaviorExecutor>().behavior.ToString() == "Policeman (BrickAsset)"
+						&& this.gameObject.GetComponent<ReciveSS>().spotted)
+                    {
+						this.gameObject.SendMessage("Lost");
+                    }
 				}
 			}
 		}

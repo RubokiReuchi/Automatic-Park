@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class LookArroundSS : MonoBehaviour
 {
     public int headAngle;
     public float headSpeed;
-    public int execute = 0; // 0 --> not working, 1 --> start, 2 --> working, 3 --> finished
+    [HideInInspector] public int execute = 0; // 0 --> not working, 1 --> start, 2 --> working, 3 --> finished
+    NavMeshAgent agent;
 
     public void StartWork()
     {
+        agent = GetComponent<NavMeshAgent>();
+        agent.speed = 0;
         StartCoroutine("LookArround");
         execute = 2;
     }
@@ -44,5 +48,6 @@ public class LookArroundSS : MonoBehaviour
             }
         }
         execute = 3;
+        agent.speed = 3.5f;
     }
 }
