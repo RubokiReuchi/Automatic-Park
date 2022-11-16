@@ -927,7 +927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6843139192737718763, guid: a9e58afdd0396f6498bd8df678f9d9d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.02
+      value: 0.53
       objectReference: {fileID: 0}
     - target: {fileID: 6843139192737718763, guid: a9e58afdd0396f6498bd8df678f9d9d4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -935,7 +935,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6843139192737718763, guid: a9e58afdd0396f6498bd8df678f9d9d4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.9
+      value: -13.3
       objectReference: {fileID: 0}
     - target: {fileID: 6843139192737718763, guid: a9e58afdd0396f6498bd8df678f9d9d4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -971,7 +971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6843139192737718775, guid: a9e58afdd0396f6498bd8df678f9d9d4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9e58afdd0396f6498bd8df678f9d9d4, type: 3}
@@ -1108,6 +1108,10 @@ PrefabInstance:
       propertyPath: blackboard.objectParams.Array.data[0]
       value: 
       objectReference: {fileID: 1136774226}
+    - target: {fileID: 3548045719172388552, guid: bd764d0fe920a1d4da258498fd3d40fa, type: 3}
+      propertyPath: blackboard.objectParams.Array.data[1]
+      value: 
+      objectReference: {fileID: 1617533032970317795}
     - target: {fileID: 3548045719172388552, guid: bd764d0fe920a1d4da258498fd3d40fa, type: 3}
       propertyPath: blackboard.objectParamsNames.Array.size
       value: 2

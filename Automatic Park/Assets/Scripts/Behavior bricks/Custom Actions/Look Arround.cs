@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 using System.Collections;
 using System.Collections.Generic;
 using Pada1.BBCore;           // Code attributes
@@ -10,57 +11,29 @@ using Pada1.BBCore.Framework; // BasePrimitiveAction
 public class LookArround : BasePrimitiveAction
 {
     [InParam("GameObject")] public GameObject go;
-    [InParam("Head Angle")] public int headAngle;
-    [InParam("Head Speed")] public float headSpeed;
 
-    bool finished = false;
+    NavMeshAgent agent;
+    LookArroundSS look_arround;
 
     public override void OnStart()
     {
-        //StartCoroutine
+        look_arround = go.GetComponent<LookArroundSS>();
+        look_arround.execute = 1;
+        look_arround.StartWork();
     }
 
     public override TaskStatus OnUpdate()
     {
-        if (!finished)
+        if (look_arround.execute != 3)
         {
+            agent.speed = 0;
             return TaskStatus.RUNNING;
         }
         else
         {
+            agent.speed = 3.5f;
+            look_arround.execute = 0;
             return TaskStatus.COMPLETED;
         }
-    }
-
-    IEnumerator OnUpdateAsCoroutine()
-    {
-        uint phase = 0; // 0 --> first right, 1 --> first left, 2 --> second right, 3 --> end head move
-        float ori_y = go.transform.rotation.eulerAngles.y;
-        float new_y = go.transform.rotation.eulerAngles.y;
-        while (phase != 3)
-        {
-            switch (phase)
-            {
-                case 0:
-                    new_y += headSpeed;
-                    go.transform.rotation = Quaternion.Euler(go.transform.rotation.eulerAngles.x, new_y, go.transform.rotation.eulerAngles.z);
-                    if (new_y == ori_y + headAngle) phase = 1;
-                    yield return null;
-                    break;
-                case 1:
-                    new_y -= headSpeed;
-                    go.transform.rotation = Quaternion.Euler(go.transform.rotation.eulerAngles.x, new_y, go.transform.rotation.eulerAngles.z);
-                    if (new_y == ori_y - headAngle) phase = 2;
-                    yield return null;
-                    break;
-                case 2:
-                    new_y += headSpeed;
-                    go.transform.rotation = Quaternion.Euler(go.transform.rotation.eulerAngles.x, new_y, go.transform.rotation.eulerAngles.z);
-                    if (new_y == ori_y) phase = 3;
-                    yield return null;
-                    break;
-            }
-        }
-        finished= true;
     }
 }

@@ -54,7 +54,7 @@ MonoBehaviour:
     position=\"425 196.25\" name=\"Sequence\" description=\"Executes all its children
     in sequence until all of them are successful\" cardinality=\"-1\" hasParent=\"False\">\r\n         
     <BehaviorTree id=\"2\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
-    <ActionNode id=\"4\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"True\"
+    <ActionNode id=\"4\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
     position=\"252.5 322.5\" name=\"Navigation/MoveToPosition\" description=\"Moves
     the game object to a given position by using a NavMeshAgent\" cardinality=\"0\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"2\" />\r\n          <ActionNode

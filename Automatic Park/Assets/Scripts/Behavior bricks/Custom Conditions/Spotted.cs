@@ -23,6 +23,10 @@ public class Spotted : ConditionBase
                 prey = t.oldman;
             }
         }
+        else if (hunter.tag == "Policeman")
+        {
+            return true;
+        }
 
         return ret;
     }
