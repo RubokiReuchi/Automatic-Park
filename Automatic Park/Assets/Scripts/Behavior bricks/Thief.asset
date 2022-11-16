@@ -45,7 +45,7 @@ MonoBehaviour:
     <RepeatDecorator id=\"64\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n     
     <child>\r\n        <ParallelNode id=\"11\" />\r\n      </child>\r\n      <inputParams
     />\r\n      <outputParams />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n   
-    <ConditionEvalNode id=\"63\" policy=\"WAIT_UNTIL_FALSE_AND_FAIL\" name=\"MyConditions/Spotted?\">\r\n     
+    <ConditionEvalNode id=\"63\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\" name=\"MyConditions/Spotted?\">\r\n     
     <inputParams>\r\n        <inputValues>\r\n          <entry name=\"Hunter\" type=\"UnityEngine.GameObject\"
     isBlackboard=\"True\" blackboard=\"Self GO\" />\r\n        </inputValues>\r\n     
     </inputParams>\r\n      <outputParams>\r\n        <outputValues>\r\n         
