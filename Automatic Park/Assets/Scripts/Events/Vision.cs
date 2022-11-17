@@ -61,7 +61,6 @@ public class Vision : MonoBehaviour
 						{
 							// call event
 							manager.events.Add(new PerceptionEvent(this.gameObject, hit.collider.gameObject, SENSE.VISION, TYPE.SPOT));
-							event_set = true;
 
 							Debug.DrawRay(ray.origin, ray.direction * frustum.farClipPlane, Color.green);
 						}

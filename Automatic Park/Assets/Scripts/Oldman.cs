@@ -34,7 +34,7 @@ public class Oldman : MonoBehaviour
         switch (state)
         {
             case OLDMAN_STATE.WANDER:
-                agent.speed = 8f;
+                agent.speed = 1.5f;
                 if (Vector3.Distance(transform.position, targets[i].transform.position) <= 1)
                 {
                     i++;
@@ -65,10 +65,11 @@ public class Oldman : MonoBehaviour
 
     public void GoToBench(GameObject bench)
     {
-        if (Random.Range(0, 100) < 100)
+        if (Random.Range(0, 100) < 10)
         {
             state = OLDMAN_STATE.GO_TO_BENCH;
             this.bench = bench;
+            GetComponent<Vision>().event_set = true;
         }
     }
 }
