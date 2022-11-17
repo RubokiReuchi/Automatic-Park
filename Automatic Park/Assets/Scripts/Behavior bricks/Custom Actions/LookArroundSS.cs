@@ -30,19 +30,19 @@ public class LookArroundSS : MonoBehaviour
                 case 0:
                     new_y += headSpeed;
                     transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, new_y, transform.rotation.eulerAngles.z);
-                    if (new_y == ori_y + headAngle) phase = 1;
+                    if (new_y >= ori_y + headAngle) phase = 1;
                     yield return null;
                     break;
                 case 1:
                     new_y -= headSpeed;
                     transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, new_y, transform.rotation.eulerAngles.z);
-                    if (new_y == ori_y - headAngle) phase = 2;
+                    if (new_y <= ori_y - headAngle) phase = 2;
                     yield return null;
                     break;
                 case 2:
                     new_y += headSpeed;
                     transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, new_y, transform.rotation.eulerAngles.z);
-                    if (new_y == ori_y) phase = 3;
+                    if (new_y >= ori_y) phase = 3;
                     yield return null;
                     break;
             }
