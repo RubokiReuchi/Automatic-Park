@@ -21,14 +21,12 @@ MonoBehaviour:
     isBlackboard=\"False\" />\r\n          <entry name=\"Policeman\" type=\"UnityEngine.GameObject\"
     isBlackboard=\"False\" />\r\n          <entry name=\"Hide Position\" type=\"UnityEngine.Vector3\"
     isBlackboard=\"False\" value=\"0 0 0\" />\r\n          <entry name=\"Bench Position\"
-    type=\"UnityEngine.Vector3\" isBlackboard=\"False\" value=\"0 0 0\" />\r\n         
-    <entry name=\"Catched\" type=\"System.Boolean\" isBlackboard=\"False\" value=\"False\"
-    />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams>\r\n       
-    <outputValues>\r\n          <entry name=\"Wander Target\" type=\"UnityEngine.Vector3\"
-    isBlackboard=\"True\" />\r\n          <entry name=\"Police Position\" type=\"UnityEngine.Vector3\"
+    type=\"UnityEngine.Vector3\" isBlackboard=\"False\" value=\"0 0 0\" />\r\n       
+    </inputValues>\r\n      </inputParams>\r\n      <outputParams>\r\n        <outputValues>\r\n         
+    <entry name=\"Wander Target\" type=\"UnityEngine.Vector3\" isBlackboard=\"True\"
+    />\r\n          <entry name=\"Police Position\" type=\"UnityEngine.Vector3\"
     isBlackboard=\"True\" />\r\n          <entry name=\"Oldman Spotted\" type=\"UnityEngine.GameObject\"
     isBlackboard=\"True\" />\r\n          <entry name=\"Stealed\" type=\"System.Boolean\"
-    isBlackboard=\"True\" />\r\n          <entry name=\"Scaped\" type=\"System.Boolean\"
     isBlackboard=\"True\" />\r\n        </outputValues>\r\n      </outputParams>\r\n     
     <localParams />\r\n    </BehaviorTree>\r\n    <SequenceNode id=\"1\">\r\n     
     <children>\r\n        <elem>\r\n          <PrioritySelectorNode id=\"60\" />\r\n       
@@ -46,7 +44,7 @@ MonoBehaviour:
     <RepeatDecorator id=\"64\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n     
     <child>\r\n        <ParallelNode id=\"11\" />\r\n      </child>\r\n      <inputParams
     />\r\n      <outputParams />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n   
-    <ConditionEvalNode id=\"63\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\" name=\"MyConditions/Spotted?\">\r\n     
+    <ConditionEvalNode id=\"63\" policy=\"WAIT_UNTIL_FALSE_AND_FAIL\" name=\"MyConditions/Spotted?\">\r\n     
     <inputParams>\r\n        <inputValues>\r\n          <entry name=\"Hunter\" type=\"UnityEngine.GameObject\"
     isBlackboard=\"True\" blackboard=\"Self GO\" />\r\n        </inputValues>\r\n     
     </inputParams>\r\n      <outputParams>\r\n        <outputValues>\r\n         
@@ -215,7 +213,7 @@ MonoBehaviour:
     cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <ActionNode id=\"66\" />\r\n          <SequenceNode id=\"14\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n    <SubbehaviorNode id=\"46\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"672.1418 773.9271\" name=\"ThieftScape\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"673.5703 681.0703\" name=\"ThieftScape\"
     description=\"\" cardinality=\"-1\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <SequenceNode id=\"76\" />\r\n          <SequenceNode
     id=\"14\" />\r\n        </data>\r\n      </_data>\r\n    </SubbehaviorNode>\r\n   
