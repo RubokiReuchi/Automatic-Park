@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum SENSE
@@ -47,13 +48,13 @@ public class EventManager : MonoBehaviour
         {
             if (ev.sense == SENSE.VISION && ev.type == TYPE.SPOT)
             {
-                if (ev.go_user.gameObject.GetComponent<Oldman>()) { ev.go_user.SendMessage("GoToBench", ev.go_obj); events.Remove(ev); }// oldman
-                if (ev.go_user.gameObject.GetComponent<BehaviorExecutor>().behavior.ToString() == "Thief (BrickAsset)") { ev.go_user.SendMessage("Steal", ev.go_obj); events.Remove(ev); } // thief
-                if (ev.go_user.gameObject.GetComponent<BehaviorExecutor>().behavior.ToString() == "Policeman (BrickAsset)") { ev.go_user.SendMessage("Hide"); events.Remove(ev); } // thief
+                if (ev.go_user.gameObject.GetComponent<Oldman>()) ev.go_user.SendMessage("GoToBench", ev.go_obj); // oldman
+                if (ev.go_user.gameObject.CompareTag("Thief")) ev.go_user.SendMessage("Steal", ev.go_obj); // thief
+                if (ev.go_user.gameObject.CompareTag("Policeman")) ev.go_user.SendMessage("Hide"); // thief
             }
             else if (ev.sense == SENSE.VISION && ev.type == TYPE.LOST)
             {
-
+                
             }
             else if (ev.sense == SENSE.SOUND && ev.type == TYPE.SPOT)
             {

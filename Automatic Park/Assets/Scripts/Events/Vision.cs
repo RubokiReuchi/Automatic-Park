@@ -7,8 +7,9 @@ public class Vision : MonoBehaviour
 	[SerializeField] EventManager manager;
 
 	[HideInInspector] public bool event_set;
+    [HideInInspector] public bool th;
 
-	public Camera frustum;
+    public Camera frustum;
 	public LayerMask mask;
 	Ray debug_ray;
 
@@ -19,6 +20,7 @@ public class Vision : MonoBehaviour
 
     void Update()
 	{
+		th = false;
 		Collider[] colliders = Physics.OverlapSphere(transform.position, frustum.farClipPlane, mask);
 		Plane[] planes = GeometryUtility.CalculateFrustumPlanes(frustum);
 
@@ -53,6 +55,7 @@ public class Vision : MonoBehaviour
 							manager.events.Add(new PerceptionEvent(this.gameObject, hit.collider.gameObject, SENSE.VISION, TYPE.SPOT));
 
 							Debug.DrawRay(ray.origin, ray.direction * frustum.farClipPlane, Color.yellow);
+							th = true;
 						}
 					}
 					else if (hit.collider.gameObject.CompareTag("Bench") && !event_set)
@@ -65,11 +68,6 @@ public class Vision : MonoBehaviour
 							Debug.DrawRay(ray.origin, ray.direction * frustum.farClipPlane, Color.green);
 						}
 					}
-                    if (!hit.collider.gameObject.CompareTag("Thief") && this.gameObject.GetComponent<BehaviorExecutor>().behavior.ToString() == "Policeman (BrickAsset)"
-						&& this.gameObject.GetComponent<ReciveSS>().spotted)
-                    {
-						this.gameObject.SendMessage("Lost");
-                    }
 				}
 			}
 		}
