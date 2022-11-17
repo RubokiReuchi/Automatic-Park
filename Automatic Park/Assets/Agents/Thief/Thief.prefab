@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 6665741389542624091}
   - component: {fileID: 8902120099790839871}
   - component: {fileID: 3548045719172388552}
+  - component: {fileID: 1136774235}
+  - component: {fileID: 1136774244}
   m_Layer: 0
   m_Name: Thief
   m_TagString: Thief
@@ -155,7 +157,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf1c6f84fa5ae14191a9c87b4600a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets: []
+  targets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &3548045719172388552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +195,7 @@ MonoBehaviour:
     colorParamsNames: []
     colorParamsLostDefaultValue: 
     objectParams:
-    - {fileID: 0}
+    - {fileID: 6665741389542624064}
     - {fileID: 0}
     objectParamsNames:
     - Self GO
@@ -204,8 +210,8 @@ MonoBehaviour:
     vector2ParamsNames: []
     vector2ParamsLostDefaultValue: 
     vector3Params:
-    - {x: 0, y: 0, z: 0}
-    - {x: 0, y: 0, z: 0}
+    - {x: 8, y: 1, z: 8}
+    - {x: 5.35, y: 1, z: 6.23}
     vector3ParamsNames:
     - Hide Position
     - Bench Position
@@ -228,6 +234,35 @@ MonoBehaviour:
     quaternionParams: []
     quaternionParamsNames: []
     quaternionParamsLostDefaultValue: 
+--- !u!114 &1136774235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6665741389542624064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a90c0ff8d1dd64fa6b9514c2cb630d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spotted: 0
+  prey: {fileID: 0}
+--- !u!114 &1136774244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6665741389542624064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f859b2200caeb64a95109894853c87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headAngle: 60
+  headSpeed: 0.5
+  execute: 0
 --- !u!1 &6665741389888905439
 GameObject:
   m_ObjectHideFlags: 0

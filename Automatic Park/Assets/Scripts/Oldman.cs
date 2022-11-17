@@ -34,7 +34,7 @@ public class Oldman : MonoBehaviour
         switch (state)
         {
             case OLDMAN_STATE.WANDER:
-                agent.speed = 1.5f;
+                agent.speed = 8f;
                 if (Vector3.Distance(transform.position, targets[i].transform.position) <= 1)
                 {
                     i++;
@@ -57,7 +57,6 @@ public class Oldman : MonoBehaviour
                 break;
             case OLDMAN_STATE.SIT:
                 agent.speed = 0;
-                StartCoroutine("Wait");
                 break;
             default:
                 break;
@@ -66,17 +65,10 @@ public class Oldman : MonoBehaviour
 
     public void GoToBench(GameObject bench)
     {
-        if (Random.Range(0, 100) < 50)
+        if (Random.Range(0, 100) < 100)
         {
             state = OLDMAN_STATE.GO_TO_BENCH;
             this.bench = bench;
         }
-    }
-
-    IEnumerator Wait()
-    {
-        yield return new WaitForSeconds(3);
-        state = OLDMAN_STATE.WANDER;
-        agent.SetDestination(targets[i].transform.position);
     }
 }

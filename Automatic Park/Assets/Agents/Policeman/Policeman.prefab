@@ -91,9 +91,12 @@ GameObject:
   - component: {fileID: 6843139192737718764}
   - component: {fileID: 1617533032970317796}
   - component: {fileID: 1617533032970317797}
+  - component: {fileID: 1617533032970317816}
+  - component: {fileID: 1617533032970317817}
+  - component: {fileID: 1617533032970317818}
   m_Layer: 0
   m_Name: Policeman
-  m_TagString: Untagged
+  m_TagString: Policeman
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -230,7 +233,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf1c6f84fa5ae14191a9c87b4600a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets: []
+  targets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1617533032970317797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,9 +258,8 @@ MonoBehaviour:
     intParams: 
     intParamsNames: []
     intParamsLostDefaultValue: 
-    boolParams: 00
-    boolParamsNames:
-    - Scream listened
+    boolParams: 
+    boolParamsNames: []
     boolParamsLostDefaultValue: 
     floatParams: []
     floatParamsNames: []
@@ -265,7 +271,7 @@ MonoBehaviour:
     colorParamsNames: []
     colorParamsLostDefaultValue: 
     objectParams:
-    - {fileID: 0}
+    - {fileID: 6843139192737718775}
     - {fileID: 0}
     objectParamsNames:
     - Self GO
@@ -300,3 +306,45 @@ MonoBehaviour:
     quaternionParams: []
     quaternionParamsNames: []
     quaternionParamsLostDefaultValue: 
+--- !u!114 &1617533032970317816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6843139192737718775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f859b2200caeb64a95109894853c87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headAngle: 100
+  headSpeed: 0.5
+  execute: 0
+--- !u!114 &1617533032970317817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6843139192737718775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bef4dcea4b90df43a9f57cdb54ecf9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spotted: 0
+--- !u!114 &1617533032970317818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6843139192737718775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a90c0ff8d1dd64fa6b9514c2cb630d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spotted: 0
+  prey: {fileID: 0}
