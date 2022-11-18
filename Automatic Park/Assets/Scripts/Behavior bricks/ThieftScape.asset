@@ -169,7 +169,7 @@ MonoBehaviour:
     cardinality=\"1\" hasParent=\"True\">\r\n          <BehaviorTree id=\"2\" />\r\n         
     <PrioritySelectorNode id=\"9\" />\r\n          <SequenceNode id=\"2\" />\r\n       
     </data>\r\n      </_data>\r\n    </PrioritySelectorNode>\r\n    <ActionNode id=\"26\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"442.5
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"True\" position=\"442.5
     176.25\" name=\"GameObject/SendMessage\" description=\"Calls the method named
     methodName on every MonoBehaviour in this game object\" cardinality=\"0\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"2\" />\r\n          <ActionNode id=\"26\" />\r\n         

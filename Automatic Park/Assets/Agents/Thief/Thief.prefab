@@ -119,6 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   event_set: 0
+  th: 0
   frustum: {fileID: 6665741389888905434}
   mask:
     serializedVersion: 2
@@ -197,9 +198,11 @@ MonoBehaviour:
     objectParams:
     - {fileID: 6665741389542624064}
     - {fileID: 0}
+    - {fileID: 0}
     objectParamsNames:
     - Self GO
     - Policeman
+    - New Material
     objectParamsLostDefaultValue: 
     layerMaskParams: []
     layerMaskParamsNames: []
