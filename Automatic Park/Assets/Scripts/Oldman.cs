@@ -18,7 +18,7 @@ public class Oldman : MonoBehaviour
     GameObject bench;
 
     int i;
-    bool waiting = false;
+    int waiting = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -66,19 +66,23 @@ public class Oldman : MonoBehaviour
 
     public void GoToBench(GameObject bench)
     {
-        if (!waiting) StartCoroutine("Wait");
-        if (waiting && Random.Range(0, 100) < 10)
+        if (waiting == 0) StartCoroutine("Wait");
+        if (waiting == 1)
         {
-            state = OLDMAN_STATE.GO_TO_BENCH;
-            this.bench = bench;
-            GetComponent<Vision>().event_set = true;
+            waiting = 2;
+            if (Random.Range(0, 100) < 10)
+            {
+                state = OLDMAN_STATE.GO_TO_BENCH;
+                this.bench = bench;
+                GetComponent<Vision>().event_set = true;
+            }
         }
     }
 
     IEnumerator Wait()
     {
-        waiting = true;
-        yield return new WaitForSeconds(2f);
-        waiting = false;
+        waiting = 1;
+        yield return new WaitForSeconds(0.5f);
+        waiting = 0;
     }
 }
