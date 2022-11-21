@@ -8,9 +8,6 @@ using Pada1.BBCore.Framework;
 public class ScreamListener : ConditionBase
 {
     [InParam("Hunter")] public GameObject hunter;
-    [OutParam("Prey")] public GameObject prey;
-
-    bool ret = false;
 
     public override bool Check()
     {
@@ -19,10 +16,10 @@ public class ScreamListener : ConditionBase
             ReciveSS1 t = hunter.GetComponent<ReciveSS1>();
             if (t.spotted)
             {
-                ret = true;
+                return true;
             }
         }
 
-        return ret;
+        return false;
     }
 }
