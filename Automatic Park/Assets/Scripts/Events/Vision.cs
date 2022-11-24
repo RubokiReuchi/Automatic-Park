@@ -44,7 +44,7 @@ public class Vision : MonoBehaviour
 							manager.events.Add(new PerceptionEvent(this.gameObject, hit.collider.gameObject, SENSE.VISION, TYPE.SPOT));
 							event_set = true;
 
-							Debug.DrawRay(ray.origin, ray.direction * frustum.farClipPlane, Color.red);
+							//Debug.DrawRay(ray.origin, ray.direction * frustum.farClipPlane, Color.red);
 						}
 					}
 					else if (hit.collider.gameObject.CompareTag("Thief") && !event_set)
@@ -54,7 +54,7 @@ public class Vision : MonoBehaviour
 							// call event
 							manager.events.Add(new PerceptionEvent(this.gameObject, hit.collider.gameObject, SENSE.VISION, TYPE.SPOT));
 
-							Debug.DrawRay(ray.origin, ray.direction * frustum.farClipPlane, Color.yellow);
+							//Debug.DrawRay(ray.origin, ray.direction * frustum.farClipPlane, Color.yellow);
 							th = true;
 						}
 					}
@@ -65,7 +65,7 @@ public class Vision : MonoBehaviour
 							// call event
 							manager.events.Add(new PerceptionEvent(this.gameObject, hit.collider.gameObject, SENSE.VISION, TYPE.SPOT));
 
-							Debug.DrawRay(ray.origin, ray.direction * frustum.farClipPlane, Color.green);
+							//Debug.DrawRay(ray.origin, ray.direction * frustum.farClipPlane, Color.green);
 						}
 					}
 				}

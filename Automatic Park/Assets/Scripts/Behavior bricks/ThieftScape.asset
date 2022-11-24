@@ -44,7 +44,7 @@ MonoBehaviour:
     id=\"15\" />\r\n        </elem>\r\n        <elem>\r\n          <SequenceNode
     id=\"16\" />\r\n        </elem>\r\n      </children>\r\n      <inputParams />\r\n     
     <outputParams />\r\n      <localParams />\r\n    </SelectorNode>\r\n    <ConditionEvalNode
-    id=\"11\" policy=\"WAIT_UNTIL_FALSE_AND_FAIL\" name=\"Perception/IsTargetClose\">\r\n     
+    id=\"11\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\" name=\"Perception/IsTargetClose\">\r\n     
     <inputParams>\r\n        <inputValues>\r\n          <entry name=\"target\" type=\"UnityEngine.GameObject\"
     isBlackboard=\"True\" blackboard=\"Policeman\" />\r\n          <entry name=\"closeDistance\"
     type=\"System.Single\" isBlackboard=\"False\" value=\"2\" />\r\n        </inputValues>\r\n     

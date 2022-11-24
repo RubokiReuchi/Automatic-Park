@@ -96,7 +96,7 @@ MonoBehaviour:
     />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n     
     <localParams />\r\n    </ActionNode>\r\n    <ActionNode id=\"61\" action=\"Navigation/MoveToPosition\">\r\n     
     <inputParams>\r\n        <inputValues>\r\n          <entry name=\"target\" type=\"UnityEngine.Vector3\"
-    isBlackboard=\"False\" value=\"-7.65 9 3.15\" />\r\n        </inputValues>\r\n     
+    isBlackboard=\"False\" value=\"5 9 44\" />\r\n        </inputValues>\r\n     
     </inputParams>\r\n      <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n   
     <ActionNode id=\"63\" action=\"Samples/ProgQuickStartGuide/SleepForever\">\r\n     
     <inputParams />\r\n      <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n 
@@ -206,7 +206,7 @@ MonoBehaviour:
     Arround\" description=\"Rotate the vision.\" cardinality=\"0\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <ActionNode id=\"13\" />\r\n         
     <SequenceNode id=\"34\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
-    <ActionNode id=\"61\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    <ActionNode id=\"61\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"True\"
     position=\"371.5 409.75\" name=\"Navigation/MoveToPosition\" description=\"Moves
     the game object to a given position by using a NavMeshAgent\" cardinality=\"0\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode

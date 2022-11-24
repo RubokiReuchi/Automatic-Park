@@ -1,3 +1,4 @@
+using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,9 @@ public class ReciveSS1 : MonoBehaviour
 
     public void Scream()
     {
-        spotted = true;
+        if (Random.Range(0, 100) < 50)
+        {
+            spotted = true;
+        }
     }
 }

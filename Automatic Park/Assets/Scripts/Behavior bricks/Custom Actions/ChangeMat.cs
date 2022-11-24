@@ -12,7 +12,9 @@ public class ChangeMat : BasePrimitiveAction
 
     public override TaskStatus OnUpdate()
     {
-        go.GetComponent<Renderer>().sharedMaterial = mat;
+        //go.GetComponent<Renderer>().sharedMaterial = mat;
+        go.transform.GetChild(1).gameObject.SetActive(false);
+        go.transform.GetChild(2).gameObject.SetActive(true);
         return TaskStatus.COMPLETED;
     }
 }
