@@ -18,14 +18,15 @@ public class RandomAgent : Agent
 
     public Transform[] Targets;
     private Transform Target;
+
     public override void OnEpisodeBegin()
     {
         // If the Agent fell, zero its momentum
-        if (this.transform.localPosition.y < 0)
+        if (this.transform.localPosition.y < 8.4)
         {
             this.rBody.angularVelocity = Vector3.zero;
             this.rBody.velocity = Vector3.zero;
-            this.transform.localPosition = new Vector3(0, 0.5f, 0);
+            this.transform.localPosition = new Vector3(2.87f, 8.7f, -1.75f);
         }
 
         int num =  Random.Range(0, Targets.Length);
@@ -66,7 +67,7 @@ public class RandomAgent : Agent
         }
 
         // Fell off platform
-        else if (this.transform.localPosition.y < 0)
+        else if (this.transform.localPosition.y < 8.4)
         {
             EndEpisode();
         }
