@@ -46,14 +46,20 @@ public class Raycast : MonoBehaviour
                 hitting = true;
                 
             }
-            else if (tag == "Bien")
+            else
+            {
+                hitting = false;
+            }
+
+
+            if (tag == "Bien")
             {
                 cubo = true;
 
             }
             else
             {
-                hitting = false;
+                cubo = false;
             }
         }
     }

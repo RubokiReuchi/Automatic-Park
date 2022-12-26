@@ -37441,7 +37441,7 @@ GameObject:
   - component: {fileID: 2100170876}
   m_Layer: 0
   m_Name: No_Skin
-  m_TagString: Untagged
+  m_TagString: Mal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
