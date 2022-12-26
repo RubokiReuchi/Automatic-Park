@@ -19,7 +19,7 @@ public class Runner : MonoBehaviour
     {
         agent.SetDestination(ghost.transform.position);
 
-        agent.speed = ghost.GetComponent<Ghost>().agent.speed - 0.3f;
-        agent.angularSpeed = ghost.GetComponent<Ghost>().agent.angularSpeed;
+        //agent.speed = ghost.GetComponent<Ghost>().agent.speed - 0.3f;
+        //agent.angularSpeed = ghost.GetComponent<Ghost>().agent.angularSpeed;
     }
 }

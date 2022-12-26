@@ -10,6 +10,8 @@ TagManager:
   - Policeman
   - Oldman
   - Bench
+  - Mal
+  - Bien
   layers:
   - Default
   - TransparentFX
