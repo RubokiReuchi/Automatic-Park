@@ -12,7 +12,12 @@ public class RandomAgent : Agent
     ColisionCheck checker;
     Raycast hits;
 
+    private Vector3 lastUpdatePos = Vector3.zero;
+    private Vector3 dist;
+    private float currentSpeed;
+
     bool touchedmal;
+
     void Start()
     {
         rBody = GetComponent<Rigidbody>();
@@ -69,36 +74,31 @@ public class RandomAgent : Agent
             SetReward(1f);
             EndEpisode();
         }
-        else if (distanceToTarget < 3f)
+
+
+        //Stopped
+        dist = transform.position - lastUpdatePos;
+        currentSpeed = dist.magnitude / Time.deltaTime;
+        lastUpdatePos = transform.position;
+
+        if(currentSpeed == 0.0f)
         {
-            SetReward(0.5f);
-            EndEpisode();
-        }
-        else if (distanceToTarget < 4f)
-        {
-            SetReward(0.25f);
-            EndEpisode();
+            AddReward(-1f);
+            Debug.Log("Parado!");
         }
 
-
-
-
+        //Raycast
         if(hits.hitting == true)
         {
-            SetReward(-0.5f);
+            AddReward(-0.5f);
             Debug.Log("Hit!");
-        }
-        else if(hits.cubo == true)
-        {
-            SetReward(0.5f);
-            Debug.Log("Cubo!");
         }
 
 
         // Fell off platform
         if (this.transform.localPosition.y < 8.4)
         {
-            SetReward(-0.5f);
+            SetReward(-1);
             EndEpisode();
         }
 
@@ -107,7 +107,7 @@ public class RandomAgent : Agent
         if (checker.isCurrentlyColliding == true)
         {
             Debug.Log("Colliding!");
-            SetReward(-0.05f);
+            SetReward(-1);
             EndEpisode();
         }
         

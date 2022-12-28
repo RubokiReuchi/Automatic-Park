@@ -6092,6 +6092,10 @@ PrefabInstance:
       value: Tree_4_Autumn (13)
       objectReference: {fileID: 0}
     - target: {fileID: 107626, guid: bcc0a35f1415b2745a222e14393d4318, type: 3}
+      propertyPath: m_TagString
+      value: Mal
+      objectReference: {fileID: 0}
+    - target: {fileID: 107626, guid: bcc0a35f1415b2745a222e14393d4318, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -7246,6 +7250,10 @@ PrefabInstance:
     - target: {fileID: 107626, guid: bcc0a35f1415b2745a222e14393d4318, type: 3}
       propertyPath: m_Name
       value: Tree_4_Autumn (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 107626, guid: bcc0a35f1415b2745a222e14393d4318, type: 3}
+      propertyPath: m_TagString
+      value: Mal
       objectReference: {fileID: 0}
     - target: {fileID: 107626, guid: bcc0a35f1415b2745a222e14393d4318, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -16665,6 +16673,10 @@ PrefabInstance:
     - target: {fileID: 107626, guid: bcc0a35f1415b2745a222e14393d4318, type: 3}
       propertyPath: m_Name
       value: Tree_4_Autumn (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 107626, guid: bcc0a35f1415b2745a222e14393d4318, type: 3}
+      propertyPath: m_TagString
+      value: Mal
       objectReference: {fileID: 0}
     - target: {fileID: 107626, guid: bcc0a35f1415b2745a222e14393d4318, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -36788,6 +36800,10 @@ PrefabInstance:
       value: Tree_4_Autumn (15)
       objectReference: {fileID: 0}
     - target: {fileID: 107626, guid: bcc0a35f1415b2745a222e14393d4318, type: 3}
+      propertyPath: m_TagString
+      value: Mal
+      objectReference: {fileID: 0}
+    - target: {fileID: 107626, guid: bcc0a35f1415b2745a222e14393d4318, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -38026,6 +38042,10 @@ PrefabInstance:
       value: Tree_4_Autumn (16)
       objectReference: {fileID: 0}
     - target: {fileID: 107626, guid: bcc0a35f1415b2745a222e14393d4318, type: 3}
+      propertyPath: m_TagString
+      value: Mal
+      objectReference: {fileID: 0}
+    - target: {fileID: 107626, guid: bcc0a35f1415b2745a222e14393d4318, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -38201,6 +38221,10 @@ PrefabInstance:
     - target: {fileID: 107626, guid: bcc0a35f1415b2745a222e14393d4318, type: 3}
       propertyPath: m_Name
       value: Tree_4_Autumn (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 107626, guid: bcc0a35f1415b2745a222e14393d4318, type: 3}
+      propertyPath: m_TagString
+      value: Mal
       objectReference: {fileID: 0}
     - target: {fileID: 107626, guid: bcc0a35f1415b2745a222e14393d4318, type: 3}
       propertyPath: m_StaticEditorFlags
