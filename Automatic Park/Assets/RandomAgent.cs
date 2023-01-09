@@ -32,8 +32,8 @@ public class RandomAgent : Agent
         // If the Agent fell, zero its momentum
         if (this.transform.localPosition.y < 8.4 || checker.isCurrentlyColliding == true)
         {
-            this.rBody.angularVelocity = Vector3.zero;
-            this.rBody.velocity = Vector3.zero;
+            //this.rBody.angularVelocity = Vector3.zero;
+            //this.rBody.velocity = Vector3.zero;
             this.transform.localPosition = new Vector3(2.87f, 8.7f, -1.75f);
         }
 
@@ -51,19 +51,39 @@ public class RandomAgent : Agent
         sensor.AddObservation(this.transform.localPosition);
 
         // Agent velocity
-        sensor.AddObservation(rBody.velocity.x);
-        sensor.AddObservation(rBody.velocity.z);
-        
+        //sensor.AddObservation(rBody.velocity.x);
+        //sensor.AddObservation(rBody.velocity.z);
+
+        sensor.AddObservation(this.transform.forward.x);
+        sensor.AddObservation(this.transform.forward.z);
     }
 
-    public float forceMultiplier = 20;
+    //public float forceMultiplier = 20;
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
         // Actions, size = 2
-        Vector3 controlSignal = Vector3.zero;
-        controlSignal.x = actionBuffers.ContinuousActions[0];
-        controlSignal.z = actionBuffers.ContinuousActions[1];
-        rBody.AddForce(controlSignal * forceMultiplier);
+        //Vector3 controlSignal = Vector3.zero;
+        //controlSignal.x = actionBuffers.ContinuousActions[0];
+        //controlSignal.z = actionBuffers.ContinuousActions[1];
+        //rBody.AddForce(controlSignal * forceMultiplier);
+
+        switch (actionBuffers.DiscreteActions[0])
+        {
+            case 0:
+                break;
+            case 1:
+                this.transform.Translate(0, 0, 8f * Time.deltaTime);
+                break;
+            case 2:
+                this.transform.Rotate(0, -200 * Time.deltaTime, 0);
+                break;
+            case 3:
+                this.transform.Rotate(0, 200 * Time.deltaTime, 0);
+                break;
+
+            default:
+                break;
+        }
 
         // Rewards
         float distanceToTarget = Vector3.Distance(this.transform.localPosition, Target.localPosition);
@@ -83,14 +103,14 @@ public class RandomAgent : Agent
 
         if(currentSpeed == 0.0f)
         {
-            AddReward(-1f);
+            AddReward(-0.05f);
             Debug.Log("Parado!");
         }
 
         //Raycast
         if(hits.hitting == true)
         {
-            AddReward(-0.5f);
+            AddReward(-0.05f);
             Debug.Log("Hit!");
         }
 
@@ -98,20 +118,20 @@ public class RandomAgent : Agent
         // Fell off platform
         if (this.transform.localPosition.y < 8.4)
         {
-            SetReward(-1);
+            SetReward(-1f);
             EndEpisode();
         }
-
-
 
         if (checker.isCurrentlyColliding == true)
         {
             Debug.Log("Colliding!");
-            SetReward(-1);
-            EndEpisode();
+            AddReward(-0.05f);
+            
         }
         
 
     }
+
+
 
 }

@@ -16,8 +16,6 @@ public class Raycast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-
         Ray ray = new Ray(this.transform.position, new Vector3(1, 0, 0));
         Ray ray2 = new Ray(this.transform.position, new Vector3(0.5f, 0, 0.5f));
         Ray ray3 = new Ray(this.transform.position, new Vector3(0, 0, 1));
