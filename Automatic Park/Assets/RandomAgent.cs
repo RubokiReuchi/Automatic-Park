@@ -72,7 +72,7 @@ public class RandomAgent : Agent
             case 0:
                 break;
             case 1:
-                this.transform.Translate(0, 0, 8f * Time.deltaTime);
+                this.transform.Translate(0, 0, 15f * Time.deltaTime);
                 break;
             case 2:
                 this.transform.Rotate(0, -200 * Time.deltaTime, 0);
